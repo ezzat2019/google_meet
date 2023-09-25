@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "767470877429",
+    "firebase_url": "https://chatappfirebase-f51b9.firebaseio.com",
+    "project_id": "chatappfirebase-f51b9",
+    "storage_bucket": "chatappfirebase-f51b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767470877429:android:d89f9efd132c18ad0763bc",
+        "android_client_info": {
+          "package_name": "com.example.google_meet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767470877429-kum7e7e0gbsn91rvfvuvic9gqdn1fqep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-C87H7WRR5KPlKuIMyxVEBwMeG7yxyKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767470877429-kum7e7e0gbsn91rvfvuvic9gqdn1fqep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767470877429:android:0942256d70c965c0",
+        "android_client_info": {
+          "package_name": "com.example.programmerezzat.chatappfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767470877429-mejjbk1s0b82lv8rtgic7h0u7tlqbn2h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.programmerezzat.chatappfirebase",
+            "certificate_hash": "ce09f160a3862ba7e376cfa607b5dfe6b3cc3e76"
+          }
+        },
+        {
+          "client_id": "767470877429-kum7e7e0gbsn91rvfvuvic9gqdn1fqep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-C87H7WRR5KPlKuIMyxVEBwMeG7yxyKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767470877429-kum7e7e0gbsn91rvfvuvic9gqdn1fqep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
