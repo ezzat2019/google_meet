@@ -132,6 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final GoogleSignIn googleSignIn = GoogleSignIn(
     //clientId: clientId,
+      forceCodeForRefreshToken: true,
       scopes: <String>[
         cal.CalendarApi.calendarScope,
         cal.CalendarApi.calendarEventsScope,
