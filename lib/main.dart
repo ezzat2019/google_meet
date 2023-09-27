@@ -4,11 +4,14 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:google_meet/base_sc.dart';
 import 'package:google_meet_sdk/google_meet_sdk.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googleapis/calendar/v3.dart' as cal;
 import 'firebase_options.dart';
-
+import 'generated/l10n.dart';
+import 'package:intl/intl.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -16,18 +19,45 @@ void main() async{
     options: DefaultFirebaseOptions.currentPlatform,
 
   );
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  final CLINT_ID="387471976059-59099bmd4phc6g6m3t9ha2dm8hks2q0r.apps.googleusercontent.com";
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
 
+   MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+  static changeLocale(BuildContext context,Locale locale)
+  {
+    _MyAppState?  c=context.findAncestorStateOfType<_MyAppState>();
+    c!.changeLocale( locale);
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  final CLINT_ID="387471976059-59099bmd4phc6g6m3t9ha2dm8hks2q0r.apps.googleusercontent.com";
+
+   changeLocale(Locale locale)
+  {
+    S.load(locale);
+    setState(() {
+
+    });
+  }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      locale: Locale(Intl.getCurrentLocale()),
+      supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(
 
         primarySwatch: Colors.blue,
@@ -81,8 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+             Text(
+              S.of(context).youhavepushedthebuttonthismanytime,
             ),
             Text(
               '$_counter',
@@ -94,24 +124,26 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed:() async{
 
-          await  GoogleSignIn().signOut();
-          var user=await signInWithGoogle(context: context);
-          if(user!=null)
-            {
-              CalendarClient() .insert(title: "test edzzat",
-                  description: "cdurrentDesc" ?? '',
-                  location: "badnha",
-                  attendeeEmailList: ["zizoezzatan3@gmail.com"],
-                  shouldNotifyAttendees: true,
-                  hasConferenceSupport: true,
-                  startTime: DateTime.now().add(Duration(hours: 1)),
-                  endTime: DateTime.now().add(Duration(hours: 2))
-              ).then((value) {
-                log(value.toString());
-              }).onError((error, stackTrace) {
-                print(error.toString());
-              });
-            }
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>BaseSc(),));
+          //
+          // await  GoogleSignIn().signOut();
+          // var user=await signInWithGoogle(context: context);
+          // if(user!=null)
+          //   {
+          //     CalendarClient() .insert(title: "test edzzat",
+          //         description: "cdurrentDesc" ?? '',
+          //         location: "badnha",
+          //         attendeeEmailList: ["zizoezzatan3@gmail.com"],
+          //         shouldNotifyAttendees: true,
+          //         hasConferenceSupport: true,
+          //         startTime: DateTime.now().add(Duration(hours: 1)),
+          //         endTime: DateTime.now().add(Duration(hours: 2))
+          //     ).then((value) {
+          //       log(value.toString());
+          //     }).onError((error, stackTrace) {
+          //       print(error.toString());
+          //     });
+          //   }
 
 
 
